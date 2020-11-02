@@ -31,8 +31,9 @@ public class AddItemsToCart extends DesiredCapability {
 	@FindBy(id = "com.ebay.mobile:id/textview_item_price")
 	private WebElement itemprice;
 
-	@FindBy(xpath = "//android.widget.TextView[@text='Item description from the seller']")
+	@FindBy(id =  "com.ebay.mobile:id/vertical_container_inner_viewgroup")
 	private WebElement itemdesc;
+	
 
 	@FindBy(xpath = "//android.widget.Button[@text='Add to cart']")
 	private WebElement addtocart;
@@ -88,21 +89,19 @@ public class AddItemsToCart extends DesiredCapability {
 		this.productName = productName;
 	}
 
-	// Tap to an element for 250 milliseconds
+	public void scrollToText(String text)
+	{
+	     driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"));");
+	}
 
-	/*
-	 * public void scrolltodesc() { try{
-	 * driver.findElement(MobileBy.AndroidUIAutomator(new UiScrollable(new
-	 * UiSelector().
-	 * resourceId("//android.widget.TextView[@text='Item description from the seller']"
-	 * )).scrollForward())); }catch(Exception exception){ //ignore error }
-	 * driver.findElement(MobileBy.
-	 * AndroidUIAutomator("new UiScrollable(new UiSelector().description(\""
-	 * +parentScrollViewId+"\")).scrollForward()"));
-	 */
-// new TouchAction(driver).
-	// .scroll(driver.findElementByXPath("//android.widget.TextView[@text='Item
-	// description from the seller']"), 10, 100);
-	// .perform();
-
+	public WebElement gettextafterscroll()
+	{
+		return itemdesc;
+	}
+	
+	public void scrollToCartBtn(String text)
+	{
+		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"+".scrollToBeginning(55);");
+	}
 }
+

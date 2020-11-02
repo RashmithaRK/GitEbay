@@ -22,7 +22,12 @@ public class Listeners implements ITestListener{
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
 		
-		
+		/* if (iTestResult != null) {
+		        String testName = iTestResult.getName();
+		        Log.addLog(testName + " is Passed...");
+		        ExtentTest extent = ExtentReport.shared().getExtentTest(testName);
+		        ExtentReport.Log(extent,1);
+		    }*/
 	}
 
 	@Override

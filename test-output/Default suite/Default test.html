@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Nov 01 20:54:46 IST 2020</td>
+<td>Started on:</td><td>Mon Nov 02 20:27:24 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>60 seconds (60222 ms)</td>
+<tr><td>Total time:</td><td>66 seconds (66600 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,10 +76,14 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='TestProgram.ShoppingCartTest.ebayTest()'><b>ebayTest</b><br>Test class: TestProgram.ShoppingCartTest<br>Parameters: rashrkp92@gmail.com, checkebay0!</td>
-<td><div><pre>java.lang.AssertionError: expected:&lt;US $3,299.00&gt; but was:&lt;US$ 3,299&gt;
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
-	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:88)
+<td><div><pre>java.lang.AssertionError: expected [US$ 870.00] but found [US $870.00]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:90)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -108,11 +112,15 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1260127127", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1260127127'><pre>java.lang.AssertionError: expected:&lt;US $3,299.00&gt; but was:&lt;US$ 3,299&gt;
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
-	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:88)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1844942991", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1844942991'><pre>java.lang.AssertionError: expected [US$ 870.00] but found [US $870.00]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:90)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -142,8 +150,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>59</td>
-<td>TestProgram.ShoppingCartTest@63355449</td></tr>
+<td>66</td>
+<td>TestProgram.ShoppingCartTest@1700915</td></tr>
 </table><p>
 </body>
 </html>

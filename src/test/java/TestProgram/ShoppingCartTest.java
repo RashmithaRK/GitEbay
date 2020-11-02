@@ -7,8 +7,10 @@ import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -34,14 +36,18 @@ public class ShoppingCartTest extends DesiredCapability {
 
 	@Test(dataProvider = "Authentication")
 	public void ebayTest(String sUserName, String sPassword) throws Exception {
-		
+
+		FileInputStream fs = new FileInputStream(
+				System.getProperty("user.dir") + "\\src\\main\\java\\PageObjects\\base.properties");
+		Properties p = new Properties();
+		p.load(fs);
 
 		AndroidDriver<AndroidElement> driver = Capabilities("ebaybuyapp");
 
 		HomePage hp = new HomePage(driver);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		hp.getSigninbtn().click();
-		
+
 		Signinpage sp = new Signinpage(driver);
 		sp.emailid().sendKeys(sUserName);
 		sp.passwordenter().sendKeys(sPassword);
@@ -50,7 +56,8 @@ public class ShoppingCartTest extends DesiredCapability {
 
 		LoginPage lp = new LoginPage(driver);
 		lp.searchanything().click();
-		lp.searchboxebay().sendKeys("65 inch tv samsung");
+
+		lp.searchboxebay().sendKeys(lp.getSearchTextFromBaseProps());
 		lp.dropboxvalues();
 
 		AddItemsToCart ad = new AddItemsToCart(driver);
@@ -62,6 +69,9 @@ public class ShoppingCartTest extends DesiredCapability {
 		System.out.println(ad.getProductPrice());
 		AssertJUnit.assertEquals(ad.getProductName(), ad.verifyitemname().getText());
 		AssertJUnit.assertEquals(ad.getProductPrice(), ad.verifyitemprice().getText());
+//		ad.scrollToText("Item description");
+//		ad.scrollToCartBtn("Add to cart");
+//		Thread.sleep(5000);
 		ad.additemtocart().click();
 
 		GoToCart go = new GoToCart(driver);
