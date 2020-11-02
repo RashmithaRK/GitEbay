@@ -18,17 +18,19 @@ import io.appium.java_client.android.AndroidElement;
 
 
 		public static void main(String[] args) throws InterruptedException, IOException {
-			// TODO Auto-generated method stub
+		
 			 
 			AndroidDriver<AndroidElement>  driver = Capabilities("ebaybuyapp");
 			HomePage hp = new HomePage(driver);
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			hp.getSigninbtn().click();
+			
 			Signinpage sp = new Signinpage(driver);
 			sp.emailid().sendKeys("rashrkp92@gmail.com");
 			sp.passwordenter().sendKeys("checkebay0!");
 			sp.loginbtnebay().click();
 			sp.maybelaterbtn().click();
+			
 			LoginPage lp =  new LoginPage(driver);
 			lp.searchanything().click();
 			lp.searchboxebay().sendKeys("65 inch tv samsung");

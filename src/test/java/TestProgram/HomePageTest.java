@@ -20,9 +20,10 @@ public class HomePageTest extends DesiredCapability{
 
 	@Test
 	public static void main(String[] args) throws InterruptedException, IOException {
-		// TODO Auto-generated method stub
+		
 		 
 		AndroidDriver<AndroidElement>  driver = Capabilities("ebaybuyapp");
+		
 		HomePage hp = new HomePage(driver);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		hp.getSigninbtn().click();

@@ -25,40 +25,33 @@ public class AddItemsToCartTest extends DesiredCapability {
 
 	@Test
 	public static void main(String[] args) throws InterruptedException, IOException {
-		// TODO Auto-generated method stub
+		
 
 		AndroidDriver<AndroidElement> driver = Capabilities("ebaybuyapp");
+		
 		HomePage hp = new HomePage(driver);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		hp.getSigninbtn().click();
+		
 		Signinpage sp = new Signinpage(driver);
 		sp.emailid().sendKeys("rashrkp92@gmail.com");
 		sp.passwordenter().sendKeys("checkebay0!");
 		sp.loginbtnebay().click();
 		sp.maybelaterbtn().click();
+		
 		LoginPage lp = new LoginPage(driver);
 		lp.searchanything().click();
 		lp.searchboxebay().sendKeys("65 inch tv samsung");
 		lp.dropboxvalues();
 
 		AddItemsToCart ad = new AddItemsToCart(driver);
-
-		ad.closepopover();
-		// Thread.sleep(5000);
-		// driver.switchTo().alert().dismiss();
-		// System.out.println("source : "+ driver.getPageSource());
+        ad.closepopover();
 		ad.itemtobeclicked().click();
 		ad.setProductName(ad.verifyitemname().getText());
 		ad.setProductPrice(ad.verifyitemprice().getText());
 		AssertJUnit.assertEquals(ad.getProductName(), ad.verifyitemname().getText());
 		AssertJUnit.assertEquals(ad.getProductPrice(), ad.verifyitemprice().getText());
 		ad.additemtocart().click();
-
-		// ad.scrolltodesc();
-		// System.out.println(ad.verifyitemdesc());
-
-		// System.out.println(driver.getContextHandles());
-		// System.out.println("source : "+ driver.getPageSource());
 
 	}
 

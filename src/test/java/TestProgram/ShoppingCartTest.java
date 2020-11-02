@@ -34,68 +34,52 @@ public class ShoppingCartTest extends DesiredCapability {
 
 	@Test(dataProvider = "Authentication")
 	public void ebayTest(String sUserName, String sPassword) throws Exception {
-		// TODO Auto-generated method stub
+		
 
 		AndroidDriver<AndroidElement> driver = Capabilities("ebaybuyapp");
-//		String sUserName = ExcelUtils.getCellData(1, 0);
-//		String sPassword = ExcelUtils.getCellData(1, 1);
+
 		HomePage hp = new HomePage(driver);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		hp.getSigninbtn().click();
+		
 		Signinpage sp = new Signinpage(driver);
-//		String sUserName = ExcelUtils.getCellData(1, 0);
-//		String sPassword = ExcelUtils.getCellData(1, 1);
-//		System.out.println(sUserName);
 		sp.emailid().sendKeys(sUserName);
 		sp.passwordenter().sendKeys(sPassword);
-//		sp.emailid().sendKeys("rashrkp92@gmail.com");
-//		sp.passwordenter().sendKeys("checkebay0!");
 		sp.loginbtnebay().click();
 		sp.maybelaterbtn().click();
+
 		LoginPage lp = new LoginPage(driver);
 		lp.searchanything().click();
 		lp.searchboxebay().sendKeys("65 inch tv samsung");
 		lp.dropboxvalues();
 
 		AddItemsToCart ad = new AddItemsToCart(driver);
-
 		ad.closepopover();
-//            Thread.sleep(5000);
-		// driver.switchTo().alert().dismiss();
-		// System.out.println("source : "+ driver.getPageSource());
 		ad.itemtobeclicked().click();
-
 		ad.setProductName(ad.verifyitemname().getText());
 		ad.setProductPrice(ad.verifyitemprice().getText());
 		System.out.println(ad.getProductName());
 		System.out.println(ad.getProductPrice());
 		AssertJUnit.assertEquals(ad.getProductName(), ad.verifyitemname().getText());
 		AssertJUnit.assertEquals(ad.getProductPrice(), ad.verifyitemprice().getText());
-
 		ad.additemtocart().click();
+
 		GoToCart go = new GoToCart(driver);
 		Thread.sleep(5000);
 		go.gotocartebay().click();
-		ShoppingCartPage s = new ShoppingCartPage(driver);
-		s.setName(s.verifyitemnameincart().getText());
-		s.setPrice(s.verifyitempriceincart().getText());
-		System.out.println(s.getName());
-		System.out.println(s.getPrice());
-		Assert.assertEquals(s.getName(), s.verifyitemnameincart().getText());
-		AssertJUnit.assertEquals(s.getPrice(), s.verifyitempriceincart().getText());
 
-		AssertJUnit.assertEquals(s.getName(), ad.getProductName());
-		AssertJUnit.assertEquals(s.getPrice(), ad.getProductPrice());
+		ShoppingCartPage sc = new ShoppingCartPage(driver);
+		sc.setName(sc.verifyitemnameincart().getText());
+		sc.setPrice(sc.verifyitempriceincart().getText());
+		System.out.println(sc.getName());
+		System.out.println(sc.getPrice());
+		Assert.assertEquals(sc.getName(), sc.verifyitemnameincart().getText());
+		Assert.assertEquals(sc.getPrice(), sc.verifyitempriceincart().getText());
+
+		Assert.assertEquals(sc.getName(), ad.getProductName());
+		Assert.assertEquals(sc.getPrice(), ad.getProductPrice());
 
 	}
-
-//	@DataProvider(name = "Authentication")
-//
-//	public static Object[][] credentials() {
-//
-//		return new Object[][] { { "rashrkp92@gmail.com", "checkebay0!" } };
-//
-//	}
 
 	@DataProvider(name = "Authentication")
 
