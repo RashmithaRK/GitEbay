@@ -2,7 +2,7 @@ package TestProgram;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
@@ -81,7 +81,7 @@ public class ShoppingCartTest extends DesiredCapability {
 		s.setPrice(s.verifyitempriceincart().getText());
 		System.out.println(s.getName());
 		System.out.println(s.getPrice());
-		AssertJUnit.assertEquals(s.getName(), s.verifyitemnameincart().getText());
+		Assert.assertEquals(s.getName(), s.verifyitemnameincart().getText());
 		AssertJUnit.assertEquals(s.getPrice(), s.verifyitempriceincart().getText());
 
 		AssertJUnit.assertEquals(s.getName(), ad.getProductName());

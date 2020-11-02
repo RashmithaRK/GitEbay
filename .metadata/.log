@@ -33,3 +33,111 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2020-11-02 14:52:37.185 -----------------------------------------------
+eclipse.buildId=4.17.0.I20200902-1800
+java.version=14.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data C:\Users\703177909\Git -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-02 14:52:40.639
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-02 14:52:40.639
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@77d54a41,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41026e5c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-02 14:52:46.473
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\703177909'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 4 0 2020-11-02 14:54:09.994
+!MESSAGE Git repository clone failed.
+!STACK 0
+org.eclipse.jgit.api.errors.JGitInternalException: org.eclipse.jgit.api.errors.FilterFailedException: Execution of filter command 'git-lfs smudge -- 'target/classes/PageObjects/ebay-buy_old.apk'' on file 'target/classes/PageObjects/ebay-buy_old.apk' failed with return code '2', message on stderr: 'Downloading 'target/classes/PageObjects/ebay-buy_old.apk' (148 MB)
+Error downloading object: 'target/classes/PageObjects/ebay-buy_old.apk' (829396f): Smudge error: Error downloading 'target/classes/PageObjects/ebay-buy_old.apk' (829396f0e786f13e7d3d115fb04629efbf54963dd4b17640bfb90180d628c7ab): EOF
+
+Errors logged to C:\Users\703177909\Git\Git\.git\lfs\logs\20201102T145409.8343227.log
+Use `git lfs logs last` to view the log.
+'
+	at org.eclipse.jgit.api.CloneCommand.call(CloneCommand.java:207)
+	at org.eclipse.egit.core.op.CloneOperation.run(CloneOperation.java:194)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard.executeCloneOperation(AbstractGitCloneWizard.java:489)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard.access$2(AbstractGitCloneWizard.java:482)
+	at org.eclipse.egit.ui.internal.clone.AbstractGitCloneWizard$5.run(AbstractGitCloneWizard.java:443)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+Caused by: java.io.IOException: org.eclipse.jgit.api.errors.FilterFailedException: Execution of filter command 'git-lfs smudge -- 'target/classes/PageObjects/ebay-buy_old.apk'' on file 'target/classes/PageObjects/ebay-buy_old.apk' failed with return code '2', message on stderr: 'Downloading 'target/classes/PageObjects/ebay-buy_old.apk' (148 MB)
+Error downloading object: 'target/classes/PageObjects/ebay-buy_old.apk' (829396f): Smudge error: Error downloading 'target/classes/PageObjects/ebay-buy_old.apk' (829396f0e786f13e7d3d115fb04629efbf54963dd4b17640bfb90180d628c7ab): EOF
+
+Errors logged to C:\Users\703177909\Git\Git\.git\lfs\logs\20201102T145409.8343227.log
+Use `git lfs logs last` to view the log.
+'
+	at org.eclipse.jgit.dircache.DirCacheCheckout.runExternalFilterCommand(DirCacheCheckout.java:1606)
+	at org.eclipse.jgit.dircache.DirCacheCheckout.getContent(DirCacheCheckout.java:1571)
+	at org.eclipse.jgit.dircache.DirCacheCheckout.checkoutEntry(DirCacheCheckout.java:1481)
+	at org.eclipse.jgit.dircache.DirCacheCheckout.doCheckout(DirCacheCheckout.java:563)
+	at org.eclipse.jgit.dircache.DirCacheCheckout.checkout(DirCacheCheckout.java:467)
+	at org.eclipse.jgit.api.CloneCommand.checkout(CloneCommand.java:376)
+	at org.eclipse.jgit.api.CloneCommand.call(CloneCommand.java:204)
+	... 5 more
+Caused by: org.eclipse.jgit.api.errors.FilterFailedException: Execution of filter command 'git-lfs smudge -- 'target/classes/PageObjects/ebay-buy_old.apk'' on file 'target/classes/PageObjects/ebay-buy_old.apk' failed with return code '2', message on stderr: 'Downloading 'target/classes/PageObjects/ebay-buy_old.apk' (148 MB)
+Error downloading object: 'target/classes/PageObjects/ebay-buy_old.apk' (829396f): Smudge error: Error downloading 'target/classes/PageObjects/ebay-buy_old.apk' (829396f0e786f13e7d3d115fb04629efbf54963dd4b17640bfb90180d628c7ab): EOF
+
+Errors logged to C:\Users\703177909\Git\Git\.git\lfs\logs\20201102T145409.8343227.log
+Use `git lfs logs last` to view the log.
+'
+	at org.eclipse.jgit.dircache.DirCacheCheckout.runExternalFilterCommand(DirCacheCheckout.java:1610)
+	... 11 more
+!SESSION 2020-11-02 14:55:28.084 -----------------------------------------------
+eclipse.buildId=4.17.0.I20200902-1800
+java.version=14.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.jface 2 0 2020-11-02 14:55:34.888
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2020-11-02 14:55:34.888
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@41b66d1,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@fb2c2f3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-11-02 14:55:40.406
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\703177909'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
