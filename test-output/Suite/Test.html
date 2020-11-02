@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Nov 02 11:40:16 IST 2020</td>
+<td>Started on:</td><td>Mon Nov 02 20:54:25 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>58 seconds (58737 ms)</td>
+<tr><td>Total time:</td><td>53 seconds (53112 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,18 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='TestProgram.ShoppingCartTest.ebayTest()'><b>ebayTest</b><br>Test class: TestProgram.ShoppingCartTest<br>Parameters: rashrkp92@gmail.com, checkebay0!</td>
-<td><div><pre>java.lang.AssertionError: expected:&lt;US $3,299.00&gt; but was:&lt;US$ 3,299&gt;
-	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:88)
+<td><div><pre>java.lang.AssertionError: expected [US$ 600.00] but found [US $600.00]
+	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:118)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1921012072", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1921012072'><pre>java.lang.AssertionError: expected:&lt;US $3,299.00&gt; but was:&lt;US$ 3,299&gt;
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:115)
-	at org.testng.AssertJUnit.assertEquals(AssertJUnit.java:125)
-	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:88)
+... Removed 33 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace557342904", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace557342904'><pre>java.lang.AssertionError: expected [US$ 600.00] but found [US $600.00]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:629)
+	at org.testng.Assert.assertEquals(Assert.java:639)
+	at TestProgram.ShoppingCartTest.ebayTest(ShoppingCartTest.java:118)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -113,8 +117,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>58</td>
-<td>TestProgram.ShoppingCartTest@9353778</td></tr>
+<td>52</td>
+<td>TestProgram.ShoppingCartTest@6ca8564a</td></tr>
 </table><p>
 </body>
 </html>

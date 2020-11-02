@@ -31,12 +31,33 @@ import TestData.ExcelUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 public class ShoppingCartTest extends DesiredCapability {
 	public WebDriver driver;
+	ExtentHtmlReporter htmlReporter;
+	ExtentReports extent;
+	ExtentTest test;
+
+	@BeforeTest
+	public void config() {
+		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\Reports\\logs.html");
+		extent = new ExtentReports();
+		extent.attachReporter(htmlReporter);
+	}
 
 	@Test(dataProvider = "Authentication")
 	public void ebayTest(String sUserName, String sPassword) throws Exception {
-
+		test = extent.createTest("logsGeneration");
 		FileInputStream fs = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\main\\java\\PageObjects\\base.properties");
 		Properties p = new Properties();
@@ -46,27 +67,32 @@ public class ShoppingCartTest extends DesiredCapability {
 
 		HomePage hp = new HomePage(driver);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		test.log(Status.INFO, MarkupHelper.createLabel("Clicking on Sigin button", ExtentColor.ORANGE));
 		hp.getSigninbtn().click();
 
 		Signinpage sp = new Signinpage(driver);
+		test.log(Status.INFO, MarkupHelper.createLabel("Sending email and password values", ExtentColor.GREY));
 		sp.emailid().sendKeys(sUserName);
 		sp.passwordenter().sendKeys(sPassword);
+		test.log(Status.INFO, MarkupHelper.createLabel("Clicking on login button", ExtentColor.ORANGE));
 		sp.loginbtnebay().click();
 		sp.maybelaterbtn().click();
 
 		LoginPage lp = new LoginPage(driver);
 		lp.searchanything().click();
-
+		test.log(Status.INFO, MarkupHelper.createLabel("Sending search text", ExtentColor.GREY));
 		lp.searchboxebay().sendKeys(lp.getSearchTextFromBaseProps());
 		lp.dropboxvalues();
 
 		AddItemsToCart ad = new AddItemsToCart(driver);
 		ad.closepopover();
+		test.log(Status.INFO, MarkupHelper.createLabel("Clicking on item which was searched", ExtentColor.ORANGE));
 		ad.itemtobeclicked().click();
 		ad.setProductName(ad.verifyitemname().getText());
 		ad.setProductPrice(ad.verifyitemprice().getText());
 		System.out.println(ad.getProductName());
 		System.out.println(ad.getProductPrice());
+		test.log(Status.INFO, MarkupHelper.createLabel("Verifying product name and price", ExtentColor.BROWN));
 		AssertJUnit.assertEquals(ad.getProductName(), ad.verifyitemname().getText());
 		AssertJUnit.assertEquals(ad.getProductPrice(), ad.verifyitemprice().getText());
 //		ad.scrollToText("Item description");
@@ -76,6 +102,7 @@ public class ShoppingCartTest extends DesiredCapability {
 
 		GoToCart go = new GoToCart(driver);
 		Thread.sleep(5000);
+		test.log(Status.INFO, MarkupHelper.createLabel("Clicking on gocartbtn", ExtentColor.ORANGE));
 		go.gotocartebay().click();
 
 		ShoppingCartPage sc = new ShoppingCartPage(driver);
@@ -85,7 +112,8 @@ public class ShoppingCartTest extends DesiredCapability {
 		System.out.println(sc.getPrice());
 		Assert.assertEquals(sc.getName(), sc.verifyitemnameincart().getText());
 		Assert.assertEquals(sc.getPrice(), sc.verifyitempriceincart().getText());
-
+		test.log(Status.INFO, MarkupHelper
+				.createLabel("Verifying product name and price between cart and product screen", ExtentColor.BROWN));
 		Assert.assertEquals(sc.getName(), ad.getProductName());
 		Assert.assertEquals(sc.getPrice(), ad.getProductPrice());
 
@@ -101,4 +129,8 @@ public class ShoppingCartTest extends DesiredCapability {
 
 	}
 
+	@AfterTest
+	public void tearDown() {
+		extent.flush();
+	}
 }
