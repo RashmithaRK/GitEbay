@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import PageObjects.DesiredCapability;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
-import PageObjects.Signinpage;
+import PageObjects.SignInPage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
@@ -23,18 +23,18 @@ import io.appium.java_client.android.AndroidElement;
 			AndroidDriver<AndroidElement>  driver = Capabilities("ebaybuyapp");
 			HomePage hp = new HomePage(driver);
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-			hp.getSigninbtn().click();
+			hp.getSignInBtn().click();
 			
-			Signinpage sp = new Signinpage(driver);
-			sp.emailid().sendKeys("rashrkp92@gmail.com");
-			sp.passwordenter().sendKeys("checkebay0!");
-			sp.loginbtnebay().click();
-			sp.maybelaterbtn().click();
+			SignInPage sp = new SignInPage(driver);
+			sp.emailId().sendKeys("rashrkp92@gmail.com");
+			sp.passwordEnter().sendKeys("checkebay0!");
+			sp.logInBtnEbay().click();
+			sp.mayBeLaterBtn().click();
 			
 			LoginPage lp =  new LoginPage(driver);
-			lp.searchanything().click();
-			lp.searchboxebay().sendKeys("65 inch tv samsung");
-	        lp.dropboxvalues();
+			lp.searchAnything().click();
+			lp.searchBoxEbay().sendKeys("65 inch tv samsung");
+	        lp.dropBoxValues();
 		  
 			
 		}

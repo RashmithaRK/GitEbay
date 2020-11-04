@@ -1,13 +1,9 @@
 package TestProgram;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.testng.annotations.Test;
 
 import PageObjects.AddItemsToCart;
@@ -15,10 +11,9 @@ import PageObjects.DesiredCapability;
 import PageObjects.GoToCart;
 import PageObjects.HomePage;
 import PageObjects.LoginPage;
-import PageObjects.Signinpage;
+import PageObjects.SignInPage;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import junit.framework.Assert;
 
 public class GoToCartTest extends DesiredCapability {
 	public WebDriver driver;
@@ -30,28 +25,28 @@ public class GoToCartTest extends DesiredCapability {
 
 		HomePage hp = new HomePage(driver);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		hp.getSigninbtn().click();
+		hp.getSignInBtn().click();
 
-		Signinpage sp = new Signinpage(driver);
-		sp.emailid().sendKeys("rashrkp92@gmail.com");
-		sp.passwordenter().sendKeys("checkebay0!");
-		sp.loginbtnebay().click();
-		sp.maybelaterbtn().click();
+		SignInPage sp = new SignInPage(driver);
+		sp.emailId().sendKeys("rashrkp92@gmail.com");
+		sp.passwordEnter().sendKeys("checkebay0!");
+		sp.logInBtnEbay().click();
+		sp.mayBeLaterBtn().click();
 
 		LoginPage lp = new LoginPage(driver);
-		lp.searchanything().click();
-		lp.searchboxebay().sendKeys("65 inch tv samsung");
-		lp.dropboxvalues();
+		lp.searchAnything().click();
+		lp.searchBoxEbay().sendKeys("65 inch tv samsung");
+		lp.dropBoxValues();
 
 		AddItemsToCart ad = new AddItemsToCart(driver);
-		ad.closepopover();
-		ad.itemtobeclicked().click();
-		ad.verifyitemname();
-		ad.verifyitemname();
-		ad.additemtocart().click();
+		ad.closePopover();
+		ad.itemToBeClicked().click();
+		ad.verifyItemName();
+		ad.verifyItemPrice();
+		ad.addItemToCart().click();
 		
 		GoToCart go = new GoToCart(driver);
-		go.gotocartebay();
+		go.goToCartEbay();
 
 	}
 

@@ -8,12 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public class Signinpage extends DesiredCapability {
+public class SignInPage extends DesiredCapability {
 
 	public AndroidDriver driver;
 	private WebDriverWait wait;
 
-	public Signinpage(AndroidDriver driver) {
+	public SignInPage(AndroidDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 		wait = new WebDriverWait(driver, 15, 50);

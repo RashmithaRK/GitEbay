@@ -3,8 +3,6 @@ import java.io.FileInputStream;
 
 import java.io.FileNotFoundException;
 
-import java.io.FileOutputStream;
-
 import java.io.IOException;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -34,8 +32,6 @@ public static Object[][] getTableArray(String FilePath, String SheetName) throws
 
 	   FileInputStream ExcelFile = new FileInputStream(FilePath);
 
-	   // Access the required test data sheet
-
 	   ExcelWBook = new XSSFWorkbook(ExcelFile);
 
 	   ExcelWSheet = ExcelWBook.getSheet(SheetName);
@@ -48,8 +44,6 @@ public static Object[][] getTableArray(String FilePath, String SheetName) throws
 	   int ci,cj;
 
 	   int totalRows = ExcelWSheet.getLastRowNum();
-
-	   // you can write a function as well to get Column count
 
 	   int totalCols = 2;
 

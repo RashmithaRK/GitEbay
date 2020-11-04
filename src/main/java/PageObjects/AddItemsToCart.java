@@ -38,15 +38,11 @@ public class AddItemsToCart extends DesiredCapability {
 	private WebElement addToCart;
 
 	public WebElement itemToBeClicked() {
-
 		return itemClick;
-
 	}
 
 	public WebElement verifyItemName() {
-
 		return itemName;
-
 	}
 
 	public WebElement verifyItemPrice() {
@@ -108,12 +104,12 @@ public class AddItemsToCart extends DesiredCapability {
 
 	public double getPrice(String itemPriceProductPage) {
 		String tempString = "";
-		if(itemPriceProductPage.contains("US")) {
+		if (itemPriceProductPage.contains("US")) {
 			tempString = itemPriceProductPage.substring(4);
-		}else {
+		} else {
 			tempString = itemPriceProductPage.substring(1);
 		}
-		
+
 		double itemPriceProductPageCheck = Double.parseDouble(tempString);
 		return itemPriceProductPageCheck;
 	}

@@ -1,12 +1,9 @@
 package TestProgram;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import PageObjects.DesiredCapability;
@@ -19,14 +16,13 @@ public class HomePageTest extends DesiredCapability{
 
 
 	@Test
-	public static void main(String[] args) throws InterruptedException, IOException {
-		
+	public static void main(String[] args) throws InterruptedException, IOException {	
 		 
 		AndroidDriver<AndroidElement>  driver = Capabilities("ebaybuyapp");
 		
 		HomePage hp = new HomePage(driver);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		hp.getSigninbtn().click();
+		hp.getSignInBtn().click();
 	    System.out.println(driver.getContextHandles());
 	    System.out.println("source : "+ driver.getPageSource());
 		

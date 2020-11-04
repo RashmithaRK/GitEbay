@@ -17,7 +17,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-//import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 
 public class ExtentReporterNG implements IReporter {
 	private ExtentReports extent;
@@ -51,12 +51,6 @@ public class ExtentReporterNG implements IReporter {
 		if (tests.size() > 0) {
 			for (ITestResult result : tests.getAllResults()) {
 				test = extent.createTest(result.getMethod().getMethodName());
-
-				/*
-				 * test.getTest(). = getTime(result.getStartMillis()); test.getTest().endedTime
-				 * = getTime(result.getEndMillis());
-				 */
-
 				for (String group : result.getMethod().getGroups())
 					test.assignCategory(group);
 
@@ -66,15 +60,7 @@ public class ExtentReporterNG implements IReporter {
 					message = result.getThrowable().getMessage();
 
 				test.log(status, message);
-
-				// extent.endTest(test);
 			}
 		}
-	}
-
-	private Date getTime(long millis) {
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTimeInMillis(millis);
-		return calendar.getTime();
 	}
 }
