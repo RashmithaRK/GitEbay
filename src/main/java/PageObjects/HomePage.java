@@ -17,12 +17,10 @@ public class HomePage extends DesiredCapability{
 
 
 	 @FindBy(id = "com.ebay.mobile:id/button_sign_in")
-	 private WebElement signinbtn;
+	 private WebElement signInBtn;
 
-	 public WebElement getSigninbtn() {
-		// WebDriverWait w = new WebDriverWait(driver,10);
-		// w.until(ExpectedConditions.visibilityOf(signinbtn));
-		 return signinbtn;
+	 public WebElement getSignInBtn() {
+		 return signInBtn;
 	}
 
 	 

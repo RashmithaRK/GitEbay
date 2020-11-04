@@ -27,26 +27,32 @@ public class Signinpage extends DesiredCapability {
 	private WebElement password;
 
 	@FindBy(xpath = "//android.widget.Button[@text='Sign in']")
-	private WebElement loginbtn;
+	private WebElement logInBtn;
 
 	@FindBy(xpath = "//android.widget.Button[@text='Maybe later']")
-	private WebElement maybelater;
+	private WebElement mayBeLater;
 
-	public WebElement emailid() {
+	public WebElement emailId() {
 		wait.until(ExpectedConditions.visibilityOf(email));
 		return email;
 	}
 
-	public WebElement passwordenter() {
+	public WebElement passwordEnter() {
 		wait.until(ExpectedConditions.visibilityOf(password));
 		return password;
 	}
 
-	public WebElement loginbtnebay() {
-		return loginbtn;
+	public WebElement logInBtnEbay() {
+		return logInBtn;
 	}
 
-	public WebElement maybelaterbtn() {
-		return maybelater;
+	public WebElement mayBeLaterBtn() {
+		String screenData = driver.getOrientation().value();
+		if (screenData.toLowerCase() == "landscape") {
+			driver.findElementByAndroidUIAutomator(
+					"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + "Maybe later" + "\"));");
+		}
+		return mayBeLater;
+		
 	}
 }

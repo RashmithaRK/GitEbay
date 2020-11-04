@@ -23,23 +23,23 @@ public class LoginPage extends DesiredCapability {
 	}
 
 	@FindBy(id = "com.ebay.mobile:id/search_box")
-	private WebElement searchbox;
+	private WebElement searchBox;
 
 	@FindBy(id = "com.ebay.mobile:id/search_src_text")
-	private WebElement searchboxenter;
+	private WebElement searchBoxEnter;
 
 	@FindBy(id = "com.ebay.mobile:id/text")
-	private List<WebElement> dropdownoptions;
+	private List<WebElement> dropDownOptions;
 
-	public WebElement searchanything() {
+	public WebElement searchAnything() {
 
-		return searchbox;
+		return searchBox;
 
 	}
 
-	public WebElement searchboxebay() {
+	public WebElement searchBoxEbay() {
 
-		return searchboxenter;
+		return searchBoxEnter;
 
 	}
 
@@ -56,9 +56,8 @@ public class LoginPage extends DesiredCapability {
 
 	}
 
-	public void dropboxvalues() throws InterruptedException {
+	public void dropBoxValues() throws InterruptedException {
 		List<WebElement> options = driver.findElements(By.id("com.ebay.mobile:id/text"));
-		System.out.println("check1");
 		int listSize = options.size();
 		if (listSize == 0) {
 			System.out.println("No results FOUND");

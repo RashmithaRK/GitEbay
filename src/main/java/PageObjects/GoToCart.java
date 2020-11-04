@@ -21,11 +21,11 @@ public class GoToCart extends DesiredCapability {
 	}
 
 	@FindBy(xpath = "//android.widget.Button[@text='Go to Cart']")
-	private WebElement gotocart;
+	private WebElement goToCart;
 
-	public WebElement gotocartebay() {
-		wait.until(ExpectedConditions.visibilityOf(gotocart));
-		return gotocart;
+	public WebElement goToCartEbay() {
+		wait.until(ExpectedConditions.visibilityOf(goToCart));
+		return goToCart;
 
 	}
 

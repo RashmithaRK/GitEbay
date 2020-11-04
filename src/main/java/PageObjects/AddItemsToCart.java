@@ -20,55 +20,59 @@ public class AddItemsToCart extends DesiredCapability {
 	}
 
 	@FindBy(id = "com.ebay.mobile:id/cell_collection_item")
-	private WebElement itemclick;
+	private WebElement itemClick;
 
 	@FindBy(id = "com.ebay.mobile:id/text_slot_1")
-	private WebElement popoverclose;
+	private WebElement popOverClose;
 
 	@FindBy(id = "com.ebay.mobile:id/textview_item_name")
-	private WebElement itemname;
+	private WebElement itemName;
 
 	@FindBy(id = "com.ebay.mobile:id/textview_item_price")
-	private WebElement itemprice;
+	private WebElement itemPrice;
 
 	@FindBy(id = "com.ebay.mobile:id/vertical_container_inner_viewgroup")
-	private WebElement itemdesc;
+	private WebElement itemDesc;
 
 	@FindBy(xpath = "//android.widget.Button[@text='Add to cart']")
-	private WebElement addtocart;
+	private WebElement addToCart;
 
-	public WebElement itemtobeclicked() {
+	public WebElement itemToBeClicked() {
 
-		return itemclick;
-
-	}
-
-	public WebElement verifyitemname() {
-
-		return itemname;
+		return itemClick;
 
 	}
 
-	public WebElement verifyitemprice() {
+	public WebElement verifyItemName() {
 
-		return itemprice;
-
-	}
-
-	public WebElement verifyitemdesc() {
-
-		return itemdesc;
+		return itemName;
 
 	}
 
-	public void closepopover() {
+	public WebElement verifyItemPrice() {
+
+		return itemPrice;
+
+	}
+
+	public WebElement verifyItemDesc() {
+
+		return itemDesc;
+
+	}
+
+	public void closePopover() {
 
 		new TouchAction(driver).tap(element(driver.findElementById("com.ebay.mobile:id/text_slot_1"))).perform();
 	}
 
-	public WebElement additemtocart() {
-
-		return addtocart;
+	public WebElement addItemToCart() {
+		String screenData = driver.getOrientation().value();
+		if (screenData.toLowerCase() == "landscape") {
+			driver.findElementByAndroidUIAutomator(
+					"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + "Add to cart" + "\"));");
+		}
+		return addToCart;
 
 	}
 
@@ -94,7 +98,7 @@ public class AddItemsToCart extends DesiredCapability {
 	}
 
 	public WebElement gettextafterscroll() {
-		return itemdesc;
+		return itemDesc;
 	}
 
 	public void scrollToCartBtn(String text) {

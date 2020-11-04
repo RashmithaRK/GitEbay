@@ -18,29 +18,29 @@ public class ShoppingCartPage extends DesiredCapability {
 	}
 
 	@FindBy(id = "com.ebay.mobile:id/item_details")
-	private WebElement shoppingcartitem;
+	private WebElement shoppingCartItem;
 
 	@FindBy(id = "com.ebay.mobile:id/item_title")
-	private WebElement itemnamecart;
+	private WebElement itemNameCart;
 
 	@FindBy(id = "com.ebay.mobile:id/item_price")
-	private WebElement itempricecart;
+	private WebElement itemPriceCart;
 
 	public WebElement shoppingcartitemclick() {
 
-		return shoppingcartitem;
+		return shoppingCartItem;
 
 	}
 
 	public WebElement verifyitemnameincart() {
 
-		return itemnamecart;
+		return itemNameCart;
 
 	}
 
 	public WebElement verifyitempriceincart() {
 
-		return itempricecart;
+		return itemPriceCart;
 
 	}
 

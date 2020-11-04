@@ -63,11 +63,7 @@ public class ShoppingCartTest extends DesiredCapability {
 		sce.ebayTest(sUserName, sPassword);
 	}
 
-//	@Test
-//	public void takeScreenshotTest() {
-//		Assert.assertEquals(false, true);
-//
-//	}
+
 
 	@AfterTest
 	public void tearDown() {
