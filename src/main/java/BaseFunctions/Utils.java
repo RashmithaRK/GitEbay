@@ -10,7 +10,7 @@ import PageObjects.DesiredCapability;
 
 
 
-public class Listeners implements ITestListener{
+public class Utils extends DesiredCapability implements ITestListener{
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -32,15 +32,10 @@ public class Listeners implements ITestListener{
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
-		//screenshot 
-		String s=result.getName();
-		try {
-		DesiredCapability.getScreenshot(s);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println("failed test");
+		System.out.println(result);
+		
+		failed();
 		
 		
 	}

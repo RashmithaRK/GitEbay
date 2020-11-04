@@ -7,7 +7,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class ShoppingCartPage extends DesiredCapability {
 
-	String price;
+	double price;
 	String name;
 	public AndroidDriver driver;
 
@@ -44,7 +44,7 @@ public class ShoppingCartPage extends DesiredCapability {
 
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
@@ -52,7 +52,7 @@ public class ShoppingCartPage extends DesiredCapability {
 		this.name = name;
 	}
 
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
 

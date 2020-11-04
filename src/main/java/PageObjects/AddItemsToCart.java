@@ -10,7 +10,7 @@ import static io.appium.java_client.touch.offset.ElementOption.element;
 public class AddItemsToCart extends DesiredCapability {
 
 	public AndroidDriver driver;
-	String productPrice;
+	double productPrice;
 	String productName;
 
 	public AddItemsToCart(AndroidDriver driver) {
@@ -31,9 +31,8 @@ public class AddItemsToCart extends DesiredCapability {
 	@FindBy(id = "com.ebay.mobile:id/textview_item_price")
 	private WebElement itemprice;
 
-	@FindBy(id =  "com.ebay.mobile:id/vertical_container_inner_viewgroup")
+	@FindBy(id = "com.ebay.mobile:id/vertical_container_inner_viewgroup")
 	private WebElement itemdesc;
-	
 
 	@FindBy(xpath = "//android.widget.Button[@text='Add to cart']")
 	private WebElement addtocart;
@@ -72,12 +71,12 @@ public class AddItemsToCart extends DesiredCapability {
 		return addtocart;
 
 	}
-	
-	public String getProductPrice() {
+
+	public double getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
 
@@ -89,19 +88,29 @@ public class AddItemsToCart extends DesiredCapability {
 		this.productName = productName;
 	}
 
-	public void scrollToText(String text)
-	{
-	     driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+text+"\"));");
+	public void scrollToText(String text) {
+		driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector()).scrollIntoView(text(\"" + text + "\"));");
 	}
 
-	public WebElement gettextafterscroll()
-	{
+	public WebElement gettextafterscroll() {
 		return itemdesc;
 	}
-	
-	public void scrollToCartBtn(String text)
-	{
-		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))"+".scrollToBeginning(55);");
+
+	public void scrollToCartBtn(String text) {
+		driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector().scrollable(true))" + ".scrollToBeginning(55);");
+	}
+
+	public double getPrice(String itemPriceProductPage) {
+		String tempString = "";
+		if(itemPriceProductPage.contains("US")) {
+			tempString = itemPriceProductPage.substring(4);
+		}else {
+			tempString = itemPriceProductPage.substring(1);
+		}
+		
+		double itemPriceProductPageCheck = Double.parseDouble(tempString);
+		return itemPriceProductPageCheck;
 	}
 }
-

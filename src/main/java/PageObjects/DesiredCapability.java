@@ -53,9 +53,20 @@ public class DesiredCapability {
 
 	}
 
-	public static void getScreenshot(String s) throws IOException {
+//	public static void getScreenshot(String s) throws IOException {
+//		File scrfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//		FileUtils.copyFile(scrfile, new File(System.getProperty("user.dir") + "\\" + s + ".png"));
+//
+//	}
+	
+	public  void failed() {
 		File scrfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(scrfile, new File(System.getProperty("user.dir") + "\\" + s + ".png"));
+		try {
+			FileUtils.copyFile(scrfile, new File("failshot_"+this.getClass().getName()+"_"+".jpg"));
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 
 	}
 }

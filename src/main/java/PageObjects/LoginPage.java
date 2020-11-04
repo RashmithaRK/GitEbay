@@ -59,26 +59,26 @@ public class LoginPage extends DesiredCapability {
 	public void dropboxvalues() throws InterruptedException {
 		List<WebElement> options = driver.findElements(By.id("com.ebay.mobile:id/text"));
 		System.out.println("check1");
-		int listSize = options.size();		
-		if(listSize == 0) {
+		int listSize = options.size();
+		if (listSize == 0) {
 			System.out.println("No results FOUND");
-		}else if (listSize < 1) {
+		} else if (listSize < 1) {
 			options.get(0).click();
-			Thread.sleep(10000);			
+			Thread.sleep(10000);
 		} else {
 			options.get(listSize - 2).click();
 			Thread.sleep(10000);
 		}
 
-//		for (WebElement webElement : options) {
-//			System.out.println(webElement.getText());
-//			if (webElement.getText().equalsIgnoreCase("samsung 65 inch qled tv")) {
-//				webElement.click();
-//				Thread.sleep(10000);
-//				break;
-//			}
-//
-//		}
+		// for (WebElement webElement : options) {
+		// System.out.println(webElement.getText());
+		// if (webElement.getText().equalsIgnoreCase("samsung 65 inch qled tv")) {
+		// webElement.click();
+		// Thread.sleep(10000);
+		// break;
+		// }
+		//
+		// }
 	}
 
 }

@@ -48,7 +48,7 @@ public class AddItemsToCartTest extends DesiredCapability {
         ad.closepopover();
 		ad.itemtobeclicked().click();
 		ad.setProductName(ad.verifyitemname().getText());
-		ad.setProductPrice(ad.verifyitemprice().getText());
+		ad.setProductPrice(ad.getPrice(ad.verifyitemprice().getText()));
 		AssertJUnit.assertEquals(ad.getProductName(), ad.verifyitemname().getText());
 		AssertJUnit.assertEquals(ad.getProductPrice(), ad.verifyitemprice().getText());
 		ad.additemtocart().click();
