@@ -51,7 +51,7 @@ public class LoginPage extends DesiredCapability {
 		String searchText = (String) p.get("searchText");
 		String[] arrOfStr = searchText.split(",", 0);
 		System.out.println(arrOfStr);
-		return arrOfStr[1];
+		return arrOfStr[0];
 
 	}
 

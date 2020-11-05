@@ -10,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -25,8 +26,6 @@ public class DesiredCapability {
 				System.getProperty("user.dir") + "\\src\\main\\java\\PageObjects\\base.properties");
 		Properties p = new Properties();
 		p.load(fs);
-
-		AndroidDriver<AndroidElement> driver;
 		File appDir = new File("src/main/java/PageObjects");
 		File app = new File(appDir, (String) p.get(apkfile));
 		DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -41,10 +40,10 @@ public class DesiredCapability {
 
 	}
 
-	public void failed() {
+	public void failed(String testMethodName) {
 		File scrfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(scrfile, new File("failshot_" + this.getClass().getName() + "_" + ".jpg"));
+			FileUtils.copyFile(scrfile, new File(System.getProperty("user.dir") + "Git\\test-output\\Screenshots" + testMethodName + "_" + ".jpg"));
 		} catch (IOException e) {
 
 			e.printStackTrace();

@@ -1,13 +1,24 @@
 package BaseFunctions;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import PageObjects.DesiredCapability;
+import PageObjects.ShoppingCartElementVerification;
+import io.appium.java_client.android.AndroidDriver;
 
 public class Utils extends DesiredCapability implements ITestListener {
+
+	public AndroidDriver driver;
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -24,8 +35,7 @@ public class Utils extends DesiredCapability implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		System.out.println("failed test");
-		System.out.println(result);
-		failed();
+		failed(result.getMethod().getMethodName());
 
 	}
 

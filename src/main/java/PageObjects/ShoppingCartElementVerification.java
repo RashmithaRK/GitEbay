@@ -1,10 +1,17 @@
 package PageObjects;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
@@ -18,10 +25,16 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import BaseFunctions.Utils;
 
 public class ShoppingCartElementVerification extends DesiredCapability {
-	public WebDriver driver;
+	public AndroidDriver driver;
 	ExtentHtmlReporter htmlReporter;
 	ExtentReports extent;
 	ExtentTest test;
+
+	public ShoppingCartElementVerification(AndroidDriver driver) {
+		// TODO Auto-generated constructor stub
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
 
 	public void setLogConfig() {
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\Reports\\logs.html");

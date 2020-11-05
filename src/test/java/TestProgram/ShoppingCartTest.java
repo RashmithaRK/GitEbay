@@ -8,15 +8,16 @@ import PageObjects.DesiredCapability;
 import PageObjects.ShoppingCartElementVerification;
 import TestData.Constants;
 import TestData.ExcelUtils;
+import io.appium.java_client.android.AndroidDriver;
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import BaseFunctions.Utils;
 
 @Listeners(Utils.class)
 public class ShoppingCartTest extends DesiredCapability {
-	public WebDriver driver;
-	
-	ShoppingCartElementVerification sce = new ShoppingCartElementVerification();
+	public AndroidDriver driver;	
+	ShoppingCartElementVerification sce = new ShoppingCartElementVerification(driver);
 	
 	@BeforeTest
 	public void config() {
@@ -24,12 +25,9 @@ public class ShoppingCartTest extends DesiredCapability {
 	}
 
 	@Test(dataProvider = "Authentication")
-	public void ElementAdd(String sUserName, String sPassword) throws Exception {
-		
+	public void ElementAdd(String sUserName, String sPassword) throws Exception {		
 		sce.ebayTest(sUserName, sPassword);
 	}
-
-
 
 	@AfterTest
 	public void tearDown() {

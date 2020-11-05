@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="config"/>
-          <include name="ebayTest" invocation-numbers="0"/>
+          <include name="ElementAdd" invocation-numbers="0"/>
         </methods>
       </class> <!-- TestProgram.ShoppingCartTest -->
     </classes>
